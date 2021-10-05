@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="ViewModels\" />
+    <PackageReference Include="LivetCask" Version="3.2.3.2" />
   </ItemGroup>
 
 </Project>

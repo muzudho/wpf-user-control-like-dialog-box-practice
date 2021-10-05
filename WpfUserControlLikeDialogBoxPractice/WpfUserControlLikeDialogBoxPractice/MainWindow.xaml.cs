@@ -1,6 +1,8 @@
 ﻿namespace WpfUserControlLikeDialogBoxPractice
 {
+    using Livet.Commands;
     using System.Windows;
+    using WpfUserControlLikeDialogBoxPractice.ViewModels;
     using WpfUserControlLikeDialogBoxPractice.Views;
 
     /// <summary>
@@ -16,6 +18,23 @@
         private void OpenOkDialogBoxButton_Click(object sender, RoutedEventArgs e)
         {
             var window = new DialogBoxWindowView();
+
+            var page = new OkDialogBoxPage();
+            var pageViewModel = (DialogBoxPageViewModel)page.DataContext;
+            pageViewModel.OkCommand = new ViewModelCommand(() =>
+            {
+                var _result = MessageBox.Show(
+                    "OKダイアログボックス風のユーザーコントロールのOKボタンを押しました",
+                    "これはWindowsデフォルトのメッセージボックスです",
+                    MessageBoxButton.OK,
+                    MessageBoxImage.Information,
+                    MessageBoxResult.OK);
+                // ダイアログボックスとして表示しているウィンドウを肯定的に閉じます。
+                window.DialogResult = true;
+            });
+
+            window.frame.Navigate(page);
+
             var dialogResult = window.ShowDialog() == true;
             if (dialogResult)
             {

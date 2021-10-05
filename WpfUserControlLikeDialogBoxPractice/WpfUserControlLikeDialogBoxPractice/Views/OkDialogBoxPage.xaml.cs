@@ -1,20 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-
-namespace WpfUserControlLikeDialogBoxPractice.Views
+﻿namespace WpfUserControlLikeDialogBoxPractice.Views
 {
+    using System.Windows;
+    using System.Windows.Controls;
+    using WpfUserControlLikeDialogBoxPractice.ViewModels;
+
     /// <summary>
     /// OkDialogBoxPage.xaml の相互作用ロジック
     /// </summary>
@@ -23,6 +12,20 @@ namespace WpfUserControlLikeDialogBoxPractice.Views
         public OkDialogBoxPage()
         {
             InitializeComponent();
+        }
+
+        /// <summary>
+        /// OKボタン押下時
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void OkButton_Click(object sender, RoutedEventArgs e)
+        {
+            var viewModel = (DialogBoxPageViewModel)this.DataContext;
+            if (viewModel.OkCommand.CanExecute)
+            {
+                viewModel.OkCommand.Execute();
+            }
         }
     }
 }
