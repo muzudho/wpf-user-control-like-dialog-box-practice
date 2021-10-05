@@ -5,6 +5,28 @@
 
     internal class DialogBoxPageViewModel:ViewModel
     {
+        private string _message="";
+
+        /// <summary>
+        /// 本文
+        /// </summary>
+        public string Message
+        {
+            get
+            {
+                return _message;
+            }
+            set
+            {
+                if (_message == value)
+                {
+                    return;
+                }
+                _message = value;
+                RaisePropertyChanged(nameof(Message));
+            }
+        }
+
         private ViewModelCommand? _okCommand;
 
         /// <summary>

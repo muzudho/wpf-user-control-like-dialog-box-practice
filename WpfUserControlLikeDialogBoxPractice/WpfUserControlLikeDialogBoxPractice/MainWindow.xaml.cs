@@ -21,6 +21,7 @@
 
             var page = new OkDialogBoxPage();
             var pageViewModel = (DialogBoxPageViewModel)page.DataContext;
+            pageViewModel.Message = "OKダイアログボックスの練習です";
             pageViewModel.OkCommand = new ViewModelCommand(() =>
             {
                 var _result = MessageBox.Show(
