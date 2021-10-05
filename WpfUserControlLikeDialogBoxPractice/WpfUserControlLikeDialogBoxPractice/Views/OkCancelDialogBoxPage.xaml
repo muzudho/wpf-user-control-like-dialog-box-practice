@@ -1,4 +1,4 @@
-﻿<Page x:Class="WpfUserControlLikeDialogBoxPractice.Views.OkDialogBoxPage"
+﻿<Page x:Class="WpfUserControlLikeDialogBoxPractice.Views.OkCancelDialogBoxPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -7,19 +7,25 @@
       xmlns:viewModel="clr-namespace:WpfUserControlLikeDialogBoxPractice.ViewModels"
       mc:Ignorable="d" 
       d:DesignWidth="300" d:DesignHeight="300"
-      Title="OkDialogBoxPage">
+      Title="OkCancelDialogBoxPage">
 
     <!-- ビューモデルと紐づけます -->
     <Page.DataContext>
         <viewModel:DialogBoxPageViewModel/>
     </Page.DataContext>
-    
-    <!-- 本文とOKボタンがあるだけのクライアント領域です -->
+
+    <!-- 本文とOK, Cancelボタンがあるだけのクライアント領域です -->
     <StackPanel>
         <!-- 本文 -->
         <Label Content="{Binding Message}" HorizontalAlignment="Center" Margin="0,0,0,5"/>
-        
-        <!-- OKボタン -->
-        <Button Content="OK" Width="90" Height="30" Margin="0,5,0,0" Click="OkButton_Click"/>
+
+        <!-- ボタン行 -->
+        <StackPanel Margin="0,5,0,0" Orientation="Horizontal" HorizontalAlignment="Center">
+            <!-- OKボタン -->
+            <Button Content="OK" Width="90" Height="30" Margin="0,0,5,0" Click="OkButton_Click"/>
+
+            <!-- Cancelボタン -->
+            <Button Content="キャンセル" Width="90" Height="30" Margin="5,0,0,0" Click="CancelButton_Click"/>
+        </StackPanel>
     </StackPanel>
 </Page>

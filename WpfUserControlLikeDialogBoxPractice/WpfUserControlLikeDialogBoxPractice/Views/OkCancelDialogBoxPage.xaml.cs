@@ -5,11 +5,11 @@
     using WpfUserControlLikeDialogBoxPractice.ViewModels;
 
     /// <summary>
-    /// OkDialogBoxPage.xaml の相互作用ロジック
+    /// OkCancelDialogBoxPage.xaml の相互作用ロジック
     /// </summary>
-    public partial class OkDialogBoxPage : Page
+    public partial class OkCancelDialogBoxPage : Page
     {
-        public OkDialogBoxPage()
+        public OkCancelDialogBoxPage()
         {
             InitializeComponent();
         }
@@ -26,6 +26,21 @@
             if (viewModel.OkCommand.CanExecute)
             {
                 viewModel.OkCommand.Execute();
+            }
+        }
+
+        /// <summary>
+        /// キャンセルボタン押下時
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CancelButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Tips. ビューの中にロジックを埋め込まず、コマンドに丸投げすることで、ビューのコードを再利用しやすくしています
+            var viewModel = (DialogBoxPageViewModel)this.DataContext;
+            if (viewModel.CancelCommand.CanExecute)
+            {
+                viewModel.CancelCommand.Execute();
             }
         }
     }

@@ -1,4 +1,6 @@
 ﻿<!--
+    TIps. あなたのデザインするアプリケーションは、ウィンドウ１つだけで済むのではないか、まずは検討してみてください。
+    
     SizeToContent="WidthAndHeight" を指定することで、クライアント領域のコントロールのサイズに密着します
 -->
 <Window x:Class="WpfUserControlLikeDialogBoxPractice.Views.DialogBoxWindowView"
